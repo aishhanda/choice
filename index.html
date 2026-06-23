@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choice Store | Timeless Indian Elegance</title>
+  <meta name="description" content="Choice Store — Timeless Indian Elegance, Woven for You. Premium bridal, pret and couture in Ghumar Mandi, Ludhiana." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #fcf5f1;
+      --bg-secondary: #f7eae4;
+      --bg-card: #fffaf7;
+      --text-primary: #4f2f2a;
+      --text-secondary: #8b5f58;
+      --accent-gold: #d89a8b;
+      --accent-burgundy: #a55c63;
+      --border-subtle: rgba(79, 47, 42, 0.12);
+      --shadow: 0 12px 35px rgba(116, 78, 73, 0.12);
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, #fdf7f3 0%, var(--bg-primary) 100%);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font: inherit; }
+
+    .container { width: min(1180px, 92%); margin: 0 auto; }
+    .section { padding: 6rem 0; }
+    .section-dark { background: var(--bg-primary); }
+    .section-alt { background: var(--bg-secondary); }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.74rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    .section-copy {
+      max-width: 700px;
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+    }
+    .divider {
+      width: 72px;
+      height: 2px;
+      margin: 1.2rem 0 2rem;
+      background: linear-gradient(90deg, var(--accent-gold), transparent);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
+      background: rgba(255, 250, 247, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(216, 154, 139, 0.18);
+    }
+    nav.solid {
+      background: rgba(255, 250, 247, 0.95);
+      box-shadow: 0 12px 35px rgba(116, 78, 73, 0.16);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.45em;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+    .nav-links a {
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 1px;
+      background: var(--accent-gold);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      border: 1px solid transparent;
+      padding: 0.82rem 1.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
+    }
+    .btn:hover { transform: translateY(-2px) scale(1.03); }
+    .btn-gold {
+      background: var(--accent-gold);
+      color: #ffffff;
+      box-shadow: 0 15px 35px rgba(216, 154, 139, 0.22);
+    }
+    .btn-gold:hover { background: #e3b2a4; }
+    .btn-outline {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: rgba(216, 154, 139, 0.12);
+      border-color: #e3b2a4;
+    }
+    .menu-toggle { display: none; }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #000;
+    }
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(79, 47, 42, 0.78) 0%, rgba(216, 154, 139, 0.34) 50%, rgba(79, 47, 42, 0.76) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(860px, 92%);
+      margin: 0 auto;
+      padding: 8rem 0 6rem;
+    }
+    .hero-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 1.2rem;
+    }
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 8vw, 5.8rem);
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--accent-gold);
+      font-style: italic;
+      margin-bottom: 1.2rem;
+    }
+    .hero-copy {
+      max-width: 620px;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .scroll-indicator {
+      position: absolute;
+      left: 50%;
+      bottom: 2rem;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--accent-gold);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      animation: drift 2s infinite;
+    }
+    .scroll-indicator svg { width: 18px; height: 18px; fill: currentColor; }
+    @keyframes drift {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    .card-grid { display: grid; gap: 1.25rem; margin-top: 2rem; }
+    .feature-card, .photo-card, .collection-card, .review-card, .tip-card, .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      box-shadow: var(--shadow);
+    }
+    .feature-card:hover, .photo-card:hover, .collection-card:hover, .review-card:hover, .tip-card:hover, .video-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-gold);
+      box-shadow: 0 18px 42px rgba(116, 78, 73, 0.14);
+    }
+
+    .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .feature-card { padding: 1.8rem; border-top: 2px solid var(--accent-gold); }
+    .feature-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.12rem;
+      margin-bottom: 0.7rem;
+      color: var(--text-primary);
+    }
+    .feature-card p, .feature-card li { color: var(--text-secondary); font-size: 0.92rem; }
+    .feature-card ul { margin-top: 0.7rem; }
+    .feature-card li { padding: 0.25rem 0 0.25rem 1rem; position: relative; }
+    .feature-card li::before {
+      content: "◆";
+      position: absolute;
+      left: 0;
+      top: 0.35rem;
+      color: var(--accent-gold);
+      font-size: 0.5rem;
+    }
+    .feature-card .quote {
+      margin-top: 1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(198, 154, 61, 0.16);
+      font-style: italic;
+      color: var(--accent-gold);
+      font-size: 0.86rem;
+    }
+
+    .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .photo-card { overflow: hidden; border: 1px solid var(--border-subtle); }
+    .photo-card img { aspect-ratio: 4 / 5; object-fit: cover; transition: transform 0.6s ease; }
+    .photo-card:hover img { transform: scale(1.04); }
+
+    .video-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .video-card {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+      border: 1px solid var(--border-subtle);
+      background: #f4ebdc;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .video-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; }
+    .video-card:hover img { transform: scale(1.05); }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.4));
+      opacity: 0.82;
+      transition: background var(--transition), opacity var(--transition), transform var(--transition);
+    }
+    .video-card:hover .video-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.16), rgba(0,0,0,0.5)); opacity: 1; }
+    .play-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      transform: translateY(8px) scale(0.9);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .video-card:hover .play-btn { transform: translateY(0) scale(1.08); opacity: 1; }
+    .play-btn svg { width: 16px; height: 16px; fill: #111; margin-left: 2px; }
+    .video-tag {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      padding: 0.3rem 0.5rem;
+      background: rgba(255,255,255,0.88);
+      color: var(--text-primary);
+      font-size: 0.64rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+    }
+    .video-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.75rem 0.7rem 0.7rem;
+      background: linear-gradient(to top, rgba(255,255,255,0.95), transparent);
+      font-size: 0.72rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .collection-card { overflow: hidden; }
+    .collection-media {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+    }
+    .collection-card img { height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .collection-card:hover img { transform: scale(1.05); }
+    .collection-card .content { padding: 1.35rem; }
+    .collection-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.06rem;
+      margin-bottom: 0.55rem;
+      color: var(--text-primary);
+    }
+    .collection-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+    .review-track { display: flex; gap: 1.2rem; overflow-x: auto; padding: 1rem 0 0.2rem; scroll-snap-type: x proximity; }
+    .review-track::-webkit-scrollbar { height: 3px; }
+    .review-track::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 3px; }
+    .review-card {
+      flex: 0 0 min(340px, 80vw);
+      scroll-snap-align: start;
+      padding: 1.65rem;
+      border-left: 3px solid var(--accent-gold);
+    }
+    .review-card .rating { color: var(--accent-gold); letter-spacing: 0.2em; font-size: 0.78rem; margin-bottom: 0.8rem; }
+    .review-card blockquote {
+      font-family: "Playfair Display", serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+      line-height: 1.55;
+    }
+    .review-card cite { font-size: 0.8rem; color: var(--accent-gold); font-style: normal; font-weight: 600; }
+
+    .tip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tip-card { padding: 1.8rem; border-top: 2px solid var(--accent-gold); }
+    .tip-card .number {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      color: rgba(198, 154, 61, 0.18);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .tip-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.55rem;
+      color: var(--text-primary);
+    }
+    .tip-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+    .faq-list { max-width: 760px; margin: 2rem auto 0; }
+    .faq-item { border-bottom: 1px solid rgba(198, 154, 61, 0.12); }
+    .faq-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 1.1rem 0;
+      color: var(--text-primary);
+      cursor: pointer;
+      font-family: "Playfair Display", serif;
+      font-size: 0.98rem;
+    }
+    .faq-button:hover { color: var(--accent-gold); }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border: 1px solid var(--accent-gold);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--accent-gold);
+      transition: transform var(--transition);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.45s ease, opacity 0.35s ease, padding 0.35s ease; }
+    .faq-item.open .faq-answer { max-height: 220px; opacity: 1; padding-bottom: 1rem; }
+    .faq-answer p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+    .contact-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 2.2rem; align-items: start; margin-top: 2rem; }
+    .contact-card {
+      background: linear-gradient(145deg, rgba(255, 250, 247, 0.98), rgba(247, 234, 228, 0.95));
+      padding: 1.7rem;
+      border: 1px solid rgba(216, 154, 139, 0.22);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent-gold), rgba(216, 154, 139, 0.16));
+    }
+    .contact-card h3 { font-family: "Playfair Display", serif; margin-bottom: 0.7rem; color: var(--text-primary); }
+    address { font-style: normal; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; }
+    .status { display: inline-flex; align-items: center; gap: 0.45rem; color: #4ade80; font-size: 0.86rem; margin-bottom: 1.1rem; }
+    .status-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; animation: pulse 1.9s infinite; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .map-wrap {
+      background: linear-gradient(145deg, rgba(255, 250, 247, 0.98), rgba(247, 234, 228, 0.95));
+      padding: 0.7rem;
+      border: 1px solid rgba(216, 154, 139, 0.22);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .map-wrap::before {
+      content: "Locate us";
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2;
+      padding: 0.36rem 0.68rem;
+      border-radius: 999px;
+      background: rgba(255, 250, 247, 0.86);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: var(--accent-gold);
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(216, 154, 139, 0.2);
+    }
+    .map-wrap iframe { width: 100%; min-height: 360px; border: 0; display: block; border-radius: 18px; }
+
+    .bottom-cta {
+      margin: 0 auto 2.2rem;
+      padding: 2rem 2.2rem;
+      border: 1px solid rgba(198, 154, 61, 0.24);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(198, 154, 61, 0.16), rgba(124, 27, 27, 0.14));
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .bottom-cta h3 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.25rem, 2vw, 1.6rem);
+      margin-bottom: 0.45rem;
+      color: var(--text-primary);
+    }
+    .bottom-cta p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      max-width: 560px;
+    }
+    .bottom-cta .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    footer { background: #f3e4dc; border-top: 1px solid rgba(216, 154, 139, 0.24); padding: 3rem 0 1.8rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+    .footer-logo { font-family: "Playfair Display", serif; font-size: 1.05rem; letter-spacing: 0.48em; color: var(--accent-gold); font-weight: 700; text-transform: uppercase; }
+    .footer-copy { color: var(--text-secondary); font-size: 0.84rem; margin-top: 0.7rem; line-height: 1.7; }
+    .footer-link { display: inline-flex; align-items: center; gap: 0.45rem; margin-top: 0.85rem; padding: 0.6rem 0.95rem; border: 1px solid var(--accent-gold); color: var(--accent-gold); font-size: 0.82rem; transition: background var(--transition); }
+    .footer-link:hover { background: rgba(198, 154, 61, 0.12); }
+    .footer-title { font-family: "Playfair Display", serif; color: var(--text-primary); margin-bottom: 0.8rem; font-size: 0.95rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.42rem; }
+    .footer-links a { color: var(--text-secondary); font-size: 0.82rem; transition: color var(--transition); }
+    .footer-links a:hover { color: var(--accent-gold); }
+    .socials { display: flex; gap: 0.6rem; margin-top: 0.6rem; }
+    .socials a { width: 38px; height: 38px; border: 1px solid rgba(198, 154, 61, 0.25); color: var(--text-secondary); display: grid; place-items: center; transition: background var(--transition), color var(--transition), border-color var(--transition); }
+    .socials a:hover { background: var(--accent-gold); color: #111; border-color: var(--accent-gold); }
+    .socials svg { width: 17px; height: 17px; fill: currentColor; }
+    .footer-bottom { padding-top: 1.2rem; border-top: 1px solid rgba(79, 47, 42, 0.08); color: #8a6d67; font-size: 0.74rem; text-align: center; }
+
+    .fab, .scroll-top {
+      position: fixed;
+      z-index: 999;
+      display: grid;
+      place-items: center;
+      border: none;
+      cursor: pointer;
+      transition: transform var(--transition), opacity var(--transition), visibility var(--transition);
+    }
+    .fab {
+      right: 1.5rem;
+      bottom: 1.5rem;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.26);
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    .fab.show { opacity: 1; transform: scale(1); animation: pulse-soft 2.4s ease-in-out infinite; }
+    .fab:hover { transform: scale(1.08); }
+    @keyframes pulse-soft {
+      0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.26); }
+      50% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.38); }
+    }
+    .fab svg { width: 28px; height: 28px; fill: white; }
+    .scroll-top {
+      right: 5.25rem;
+      bottom: 1.8rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-burgundy);
+      opacity: 0;
+      visibility: hidden;
+    }
+    .scroll-top.show { opacity: 1; visibility: visible; }
+    .scroll-top:hover { transform: translateY(-2px); }
+    .scroll-top svg { width: 18px; height: 18px; fill: white; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+      filter: blur(6px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s ease;
+      will-change: transform, opacity, filter;
+    }
+    .fade-in.in {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    @media (max-width: 1024px) {
+      .why-grid, .collection-grid, .tip-grid { grid-template-columns: 1fr; }
+      .video-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; cursor: pointer; }
+      .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--accent-gold); transition: transform var(--transition), opacity var(--transition); }
+      nav.mobile-open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 66px;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 6%;
+        background: rgba(17, 17, 17, 0.97);
+        gap: 1rem;
+        border-bottom: 1px solid rgba(198, 154, 61, 0.14);
+      }
+      .hero-title { letter-spacing: 0.14em; }
+      .photo-grid, .video-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+      .scroll-top { right: 1.25rem; bottom: 5.4rem; }
+      .fab { right: 1.25rem; bottom: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="topnav">
+    <a href="#home" class="logo">C H O I C E</a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#why-us">Why Us</a>
+      <a href="#photos">Photos</a>
+      <a href="#collections">Collections</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#tips">Tips</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-gold" href="https://wa.me/919815177718?text=Hello%20Choice%20Store%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <video autoplay muted loop playsinline poster="images/choice-store-sign.jpg">
+      <source src="images/choice-store-video.mov" type="video/quicktime" />
+    </video>
+    <div class="hero-content fade-in">
+      <p class="hero-tag">Ludhiana Boutique • Ghumar Mandi</p>
+      <h1 class="hero-title">C H O I C E</h1>
+      <p class="hero-subtitle">Timeless Indian Elegance, Woven for You</p>
+      <p class="hero-copy">A thoughtfully curated boutique experience for bridal wear, festive ensembles, and everyday elegance crafted with premium fabrics and timeless detailing.</p>
+      <div class="hero-actions">
+        <a class="btn btn-outline" href="#collections">Explore Collections</a>
+        <a class="btn btn-gold" href="https://wa.me/919815177718?text=Hello%20Choice%20Store%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24"><path d="M12 5v14m0 0-6-6m6 6 6-6" /></svg>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section-dark" id="why-us">
+      <div class="container fade-in">
+        <span class="eyebrow">Why Us</span>
+        <h2 class="section-title">Curated elegance for every moment</h2>
+        <div class="divider"></div>
+        <div class="card-grid why-grid">
+          <article class="feature-card">
+            <h3>Superb Collection</h3>
+            <p>Our customers are consistently impressed by the variety and quality of our outfits. We carefully curate our collection to include both timeless classics and the latest trends in Indian ethnic wear.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Premium, Beautiful Fabrics</h3>
+            <p>The foundation of a great outfit is the material. We source a stunning selection of high-quality fabrics that feel as good as they look.</p>
+            <ul>
+              <li>Pure organza and glass tissue</li>
+              <li>Elegant tissue silk</li>
+              <li>Breathable mal cotton</li>
+              <li>Sleek and comfortable crepe</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <h3>Warm, Welcoming Service</h3>
+            <p>We believe that finding the perfect outfit should be a wonderful experience. Our friendly staff and humble owner are here to offer personalized service and make you feel right at home.</p>
+          </article>
+          <article class="feature-card">
+            <h3>For Every Occasion</h3>
+            <p>Whether you are a bride-to-be, a wedding guest, or looking for chic everyday wear, we have something for you.</p>
+            <ul>
+              <li>Stunning bridal wear & lehengas</li>
+              <li>Unstitched and semi-stitched suits</li>
+              <li>Ready-to-wear dresses</li>
+              <li>Elegant sarees and dress materials</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="photos">
+      <div class="container fade-in">
+        <span class="eyebrow">Photos</span>
+        <h2 class="section-title">A glimpse of the boutique experience</h2>
+        <div class="divider"></div>
+        <div class="card-grid photo-grid">
+          <div class="photo-card"><img src="images/choice-store-interior.jpg" alt="Choice Store interior" /></div>
+          <div class="photo-card"><img src="images/choice-store-sign.jpg" alt="Choice Store interior detail" /></div>
+          <div class="photo-card"><img src="images/choice-store-interior1.jpg" alt="Choice Store storefront" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="videos">
+      <div class="container fade-in">
+        <span class="eyebrow">Facebook Reels</span>
+        <h2 class="section-title">Choice in action</h2>
+        <div class="divider"></div>
+        <div class="card-grid video-grid">
+          <a class="video-card" href="https://www.facebook.com/reel/1940041636953588/?s=fb_shorts_profile&stack_idx=0" target="_blank" rel="noopener noreferrer">
+            <img src="images/vc1.jpg" alt="Choice Store reel preview" />
+            <div class="video-overlay"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 6v12l10-6z"/></svg></span></div>
+            
+            <div class="video-label">Open reel</div>
+          </a>
+          <a class="video-card" href="https://www.facebook.com/reel/1803807707277481/?s=fb_shorts_profile&stack_idx=0" target="_blank" rel="noopener noreferrer">
+            <img src="images/vc2.jpg" alt="Choice Store reel preview" />
+            <div class="video-overlay"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 6v12l10-6z"/></svg></span></div>
+            
+            <div class="video-label">Open reel</div>
+          </a>
+          <a class="video-card" href="https://www.facebook.com/reel/2501245750306494/?s=fb_shorts_profile&stack_idx=0" target="_blank" rel="noopener noreferrer">
+            <img src="images/vc3.jpg" alt="Choice Store reel preview" />
+            <div class="video-overlay"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 6v12l10-6z"/></svg></span></div>
+            
+            <div class="video-label">Open reel</div>
+          </a>
+          <a class="video-card" href="https://www.facebook.com/reel/1643802020182078/?s=fb_shorts_profile&stack_idx=0" target="_blank" rel="noopener noreferrer">
+            <img src="images/vc4.jpg" alt="Choice Store reel preview" />
+            <div class="video-overlay"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 6v12l10-6z"/></svg></span></div>
+            
+            <div class="video-label">Open reel</div>
+          </a>
+          <a class="video-card" href="https://www.facebook.com/reel/1364122825780091/?s=fb_shorts_profile&stack_idx=0" target="_blank" rel="noopener noreferrer">
+            <img src="images/vc5.jpg" alt="Choice Store reel preview" />
+            <div class="video-overlay"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 6v12l10-6z"/></svg></span></div>
+            
+            <div class="video-label">Open reel</div>
+          </a>
+          <a class="video-card" href="https://www.facebook.com/reel/1787018162670079/?s=fb_shorts_profile&stack_idx=0" target="_blank" rel="noopener noreferrer">
+            <img src="images/vc6.jpg" alt="Choice Store reel preview" />
+            <div class="video-overlay"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 6v12l10-6z"/></svg></span></div>
+            
+            <div class="video-label">Open reel</div>
+          </a>
+          <a class="video-card" href="https://www.facebook.com/reel/983183548039394/?s=fb_shorts_profile&stack_idx=0" target="_blank" rel="noopener noreferrer">
+            <img src="images/vc7.jpg" alt="Choice Store reel preview" />
+            <div class="video-overlay"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 6v12l10-6z"/></svg></span></div>
+            
+            <div class="video-label">Open reel</div>
+          </a>
+          <a class="video-card" href="https://www.facebook.com/reel/2197772811064554/?s=fb_shorts_profile&stack_idx=0" target="_blank" rel="noopener noreferrer">
+            <img src="images/vc8.jpg" alt="Choice Store reel preview" />
+            <div class="video-overlay"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 6v12l10-6z"/></svg></span></div>
+            
+            <div class="video-label">Open reel</div>
+          </a>
+          <a class="video-card" href="https://www.facebook.com/reel/2108559153430615/?s=fb_shorts_profile&stack_idx=0" target="_blank" rel="noopener noreferrer">
+            <img src="images/vc9.jpg" alt="Choice Store reel preview" />
+            <div class="video-overlay"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 6v12l10-6z"/></svg></span></div>
+            
+            <div class="video-label">Open reel</div>
+          </a>
+          <a class="video-card" href="https://www.facebook.com/reel/1698694424753058/?s=fb_shorts_profile&stack_idx=0" target="_blank" rel="noopener noreferrer">
+            <img src="images/vc10.jpg" alt="Choice Store reel preview" />
+            <div class="video-overlay"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 6v12l10-6z"/></svg></span></div>
+            
+            <div class="video-label">Open reel</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="collections">
+      <div class="container fade-in">
+        <span class="eyebrow">Collections</span>
+        <h2 class="section-title">Signature pieces for every celebration</h2>
+        <div class="divider"></div>
+        <div class="card-grid collection-grid">
+          <article class="collection-card">
+            <div class="collection-media"><img src="images/organza-sets.jpg" alt="Hand-Embroidered Organza Sets" /></div>
+            <div class="content">
+              <h3>Hand-Embroidered Organza Sets</h3>
+              <p>Experience pure grace with our organza shirts featuring full-hand embroidery. Paired with a sleek crepe bottom and an organza dupatta with delicate cutwork, it's a perfect blend of elegance and charm.</p>
+            </div>
+          </article>
+          <article class="collection-card">
+            <div class="collection-media"><img src="images/bridal-lehenga.jpg" alt="Bridal Wear & Lehengas" /></div>
+            <div class="content">
+              <h3>Bridal Wear & Lehengas</h3>
+              <p>Find the dress of your dreams in our bridal collection. We specialize in stunning lehengas and wedding season outfits, designed to make your special day even more memorable.</p>
+            </div>
+          </article>
+          <article class="collection-card">
+            <div class="collection-media"><img src="images/glass-tissue-assembles.jpg" alt="Glass Tissue Ensembles" /></div>
+            <div class="content">
+              <h3>Glass Tissue Ensembles</h3>
+              <p>For a sophisticated look, choose our glass tissue fabric shirts with elegant thread work and hand embroidery. The matching dupatta with a beautiful cutwork border completes this graceful outfit.</p>
+            </div>
+          </article>
+          <article class="collection-card">
+            <div class="collection-media"><img src="images/unstitched-semistiched.jpg" alt="Unstitched & Semi-Stitched Suits" /></div>
+            <div class="content">
+              <h3>Unstitched & Semi-Stitched Suits</h3>
+              <p>Create a look that's uniquely yours. We offer a wide variety of unstitched and semi-stitched suit materials, featuring beautiful fabrics and embroidery, ready for you to customize.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="reviews">
+      <div class="container fade-in">
+        <span class="eyebrow">Reviews</span>
+        <h2 class="section-title">What our clients are saying</h2>
+        <div class="divider"></div>
+        <div class="review-track">
+          <article class="review-card">
+            <div class="rating">★★★★★</div>
+            <blockquote>“Such Gud place with Gud staff N owner of the shop is really a humble person”</blockquote>
+            <cite>— Uv Ghai</cite>
+          </article>
+          <article class="review-card">
+            <div class="rating">★★★★★</div>
+            <blockquote>“their collection is superb”</blockquote>
+            <cite>— Nidhi Khosla</cite>
+          </article>
+          <article class="review-card">
+            <div class="rating">★★★★★</div>
+            <blockquote>“Speechless collection of outfits thankyou choice”</blockquote>
+            <cite>— Bath Kaur</cite>
+          </article>
+          <article class="review-card">
+            <div class="rating">★★★★★</div>
+            <blockquote>“awesome collection nice dealing”</blockquote>
+            <cite>— Balwinder Virdi</cite>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="tips">
+      <div class="container fade-in">
+        <span class="eyebrow">Tips</span>
+        <h2 class="section-title">Helpful styling notes from the boutique</h2>
+        <div class="divider"></div>
+        <div class="card-grid tip-grid">
+          <article class="tip-card">
+            <div class="number">01</div>
+            <h3>Explore Our Bridal Collection</h3>
+            <p>If you're a bride-to-be, be sure to ask about our bridal wear. It's one of our specialties, from stunning lehengas to elegant reception outfits.</p>
+          </article>
+          <article class="tip-card">
+            <div class="number">02</div>
+            <h3>Find Your Perfect Summer Look</h3>
+            <p>Looking for something light and breathable? Ask to see our Mal cotton collections, which are perfect for staying cool and chic in the summer heat.</p>
+          </article>
+          <article class="tip-card">
+            <div class="number">03</div>
+            <h3>Customize with Unstitched Suits</h3>
+            <p>For a truly personalized outfit, browse our selection of unstitched and semi-stitched materials. It's the perfect way to get a custom fit and style.</p>
+          </article>
+          <article class="tip-card">
+            <div class="number">04</div>
+            <h3>DM Us With Any Questions</h3>
+            <p>If you see something you love online or have a question about a piece, don't hesitate to send us a direct message or WhatsApp. We're always happy to help!</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container fade-in">
+        <span class="eyebrow">FAQs</span>
+        <h2 class="section-title">Everything you may want to know</h2>
+        <div class="divider"></div>
+        <div class="faq-list">
+          <div class="faq-item open">
+            <button class="faq-button" type="button"><span>Do you specialize in bridal wear?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer"><p>Yes! We offer a wide range of stunning bridal lehengas, reception outfits, and wedding guest wear.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" type="button"><span>Can I have an outfit customized?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer"><p>We offer a wide range of unstitched and semi-stitched suits. This allows you to tailor the fabric and design to your exact measurements and style preferences for a perfect fit.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" type="button"><span>What kind of fabrics do you offer?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer"><p>We offer a stunning selection including pure organza, glass tissue, tissue silk, mal cotton, crepe, and more.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" type="button"><span>Do you have options for casual or everyday wear?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer"><p>Yes! Our collection includes lightweight summer suits, Mal cotton printed shirts, and everyday chic wear.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" type="button"><span>Can I shop from you online?</span><span class="faq-icon">+</span></button>
+            <div class="faq-answer"><p>Yes! You can browse and order from our complete collection through our online store. We also offer worldwide delivery.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="contact">
+      <div class="container fade-in">
+        <span class="eyebrow">Contact</span>
+        <h2 class="section-title">Visit the boutique or connect online</h2>
+        <div class="divider"></div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Choice Store</h3>
+            <address>
+              Ghumar Mandi, Near Gurudwara Mai Nand Kaur, Ludhiana
+            </address>
+            <p style="color: var(--text-secondary); margin-bottom: 0.7rem;">Phone: +91 98151 77718</p>
+            <div class="status"><span class="status-dot"></span> Open Now</div>
+            <div class="contact-actions">
+              <a class="btn btn-gold" href="tel:+919815177718">Call Now</a>
+              <a class="btn btn-outline" href="https://wa.me/919815177718?text=Hello%20Choice%20Store%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.4607842049636!2d75.8280633!3d30.90174199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a83c64973189f%3A0x1a630cfad80a87f6!2sChoice!5e0!3m2!1sen!2sin!4v1782237746319!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">C H O I C E</div>
+          <p class="footer-copy">Timeless Indian Elegance, Woven for You.</p>
+          <a class="footer-link" href="https://wa.me/919815177718?text=Hello%20Choice%20Store%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+        </div>
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <div class="footer-links">
+            <a href="#why-us">Why Us</a>
+            <a href="#photos">Photos</a>
+            <a href="#collections">Collections</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-title">Follow</h3>
+          <div class="socials">
+            <a href="https://www.instagram.com/choiceludhiana?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm5 5.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5Zm6.25-1.75a1.25 1.25 0 1 0 1.25 1.25 1.25 1.25 0 0 0-1.25-1.25Z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/choice.ludhiana/?ref=NONE_xav_ig_profile_page_web" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M13.5 21v-7h2.35l.35-2.7h-2.7V4.7c0-.78.22-1.31 1.34-1.31h1.43V1.06A19.6 19.6 0 0 0 14.2 1c-2.06 0-3.47 1.26-3.47 3.57v2.03H8.3V9.3h2.43v7Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Choice Store. Crafted with timeless elegance.</div>
+    </div>
+  </footer>
+
+  <script>
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+
+    window.addEventListener('load', function () {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted) {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    });
+
+    window.scrollTo(0, 0);
+
+    const nav = document.getElementById('topnav');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const items = document.querySelectorAll('.fade-in, .card-grid > *, .video-card, .contact-card, .map-wrap, .bottom-cta, .faq-item, .footer-link, .socials a');
+    const sections = document.querySelectorAll('section[id], header[id]');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+
+    items.forEach((item, index) => {
+      item.style.transitionDelay = `${Math.min(index * 80, 320)}ms`;
+      observer.observe(item);
+    });
+
+    const setActiveLink = () => {
+      const scrollPos = window.scrollY + 140;
+      sections.forEach(section => {
+        const id = section.getAttribute('id');
+        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (!link) return;
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        if (scrollPos >= top && scrollPos < bottom) {
+          navLinks.forEach(linkItem => linkItem.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('solid', window.scrollY > 20);
+      setActiveLink();
+    });
+
+    setActiveLink();
+
+    menuToggle?.addEventListener('click', () => {
+      const open = nav.classList.toggle('mobile-open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+
+    document.querySelectorAll('.faq-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+        if (!open) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
