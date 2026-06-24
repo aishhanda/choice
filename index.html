@@ -24,6 +24,11 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      background: var(--bg-primary);
+    }
     body {
       font-family: "Inter", sans-serif;
       background: linear-gradient(180deg, #fdf7f3 0%, var(--bg-primary) 100%);
@@ -31,6 +36,7 @@
       line-height: 1.7;
       overflow-x: hidden;
     }
+    iframe, video { max-width: 100%; display: block; }
     img { display: block; width: 100%; height: auto; }
     a { color: inherit; text-decoration: none; }
     ul { list-style: none; }
@@ -95,7 +101,7 @@
       font-size: 1.1rem;
       letter-spacing: 0.45em;
       font-weight: 700;
-      color: var(--accent-gold);
+      color: var(--text-primary);
       text-transform: uppercase;
     }
     .nav-links {
@@ -162,20 +168,24 @@
       align-items: center;
       overflow: hidden;
       background: #000;
+      isolation: isolate;
     }
-    .hero video {
-      position: absolute;
-      inset: 0;
+    .hero-video {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       object-fit: cover;
+      z-index: -2;
     }
     .hero::before {
       content: "";
-      position: absolute;
+      position: fixed;
       inset: 0;
       background: linear-gradient(135deg, rgba(79, 47, 42, 0.78) 0%, rgba(216, 154, 139, 0.34) 50%, rgba(79, 47, 42, 0.76) 100%);
       z-index: 1;
+      pointer-events: none;
     }
     .hero-content {
       position: relative;
@@ -183,6 +193,13 @@
       width: min(860px, 92%);
       margin: 0 auto;
       padding: 8rem 0 6rem;
+      transition: transform 0.1s ease, opacity 0.1s ease;
+    }
+    main {
+      position: relative;
+      z-index: 2;
+      background: var(--bg-primary);
+      margin-top: 100vh;
     }
     .hero-tag {
       font-size: 0.7rem;
@@ -198,7 +215,7 @@
       letter-spacing: 0.24em;
       line-height: 0.95;
       text-transform: uppercase;
-      color: var(--text-primary);
+      color: var(--accent-gold);
       margin-bottom: 1rem;
     }
     .hero-subtitle {
@@ -210,7 +227,7 @@
     }
     .hero-copy {
       max-width: 620px;
-      color: var(--text-secondary);
+      color: rgb(177, 177, 162);
       font-size: 1rem;
       margin-bottom: 2rem;
     }
@@ -585,6 +602,19 @@
       transform: translateY(0) scale(1);
       filter: blur(0);
     }
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      will-change: transform, opacity;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
 
     @media (max-width: 1024px) {
       .why-grid, .collection-grid, .tip-grid { grid-template-columns: 1fr; }
@@ -607,10 +637,14 @@
         gap: 1rem;
         border-bottom: 1px solid rgba(198, 154, 61, 0.14);
       }
+      html, body { background: #1A1A1A; }
+      .section-dark { background: #1A1A1A !important; min-height: 100vh; width: 100%; position: relative; z-index: 2; }
+      .hero { min-height: 100svh; }
+      .hero-video { height: 100svh; }
       .hero-title { letter-spacing: 0.14em; }
+      .reveal, .fade-in { opacity: 1 !important; transform: none !important; filter: none !important; }
+      .reveal.active, .fade-in.in { opacity: 1 !important; transform: none !important; filter: none !important; }
       .photo-grid, .video-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
-      .scroll-top { right: 1.25rem; bottom: 5.4rem; }
-      .fab { right: 1.25rem; bottom: 1.25rem; }
     }
   </style>
 </head>
@@ -632,10 +666,10 @@
   </nav>
 
   <header class="hero" id="home">
-    <video autoplay muted loop playsinline poster="images/choice-store-sign.jpg">
-      <source src="images/choice-store-video.mov" type="video/quicktime" />
+    <video class="hero-video" autoplay muted loop playsinline poster="images/choice-store-sign.jpg">
+      <source src="images/choice-store-video.mp4" type="video/quicktime" />
     </video>
-    <div class="hero-content fade-in">
+    <div class="hero-content fade-in reveal">
       <p class="hero-tag">Ludhiana Boutique • Ghumar Mandi</p>
       <h1 class="hero-title">C H O I C E</h1>
       <p class="hero-subtitle">Timeless Indian Elegance, Woven for You</p>
@@ -645,15 +679,12 @@
         <a class="btn btn-gold" href="https://wa.me/919815177718?text=Hello%20Choice%20Store%2C%20I%20would%20like%20to%20know%20more%20about%20your%20collections." target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
       </div>
     </div>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <svg viewBox="0 0 24 24"><path d="M12 5v14m0 0-6-6m6 6 6-6" /></svg>
-    </div>
+    
   </header>
 
   <main>
-    <section class="section section-dark" id="why-us">
-      <div class="container fade-in">
+    <section class="section section-dark reveal" id="why-us">
+      <div class="container fade-in reveal">
         <span class="eyebrow">Why Us</span>
         <h2 class="section-title">Curated elegance for every moment</h2>
         <div class="divider"></div>
@@ -690,8 +721,8 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="photos">
-      <div class="container fade-in">
+    <section class="section section-alt reveal" id="photos">
+      <div class="container fade-in reveal">
         <span class="eyebrow">Photos</span>
         <h2 class="section-title">A glimpse of the boutique experience</h2>
         <div class="divider"></div>
@@ -703,8 +734,8 @@
       </div>
     </section>
 
-    <section class="section section-dark" id="videos">
-      <div class="container fade-in">
+    <section class="section section-dark reveal" id="videos">
+      <div class="container fade-in reveal">
         <span class="eyebrow">Facebook Reels</span>
         <h2 class="section-title">Choice in action</h2>
         <div class="divider"></div>
@@ -773,8 +804,8 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="collections">
-      <div class="container fade-in">
+    <section class="section section-alt reveal" id="collections">
+      <div class="container fade-in reveal">
         <span class="eyebrow">Collections</span>
         <h2 class="section-title">Signature pieces for every celebration</h2>
         <div class="divider"></div>
@@ -811,8 +842,8 @@
       </div>
     </section>
 
-    <section class="section section-dark" id="reviews">
-      <div class="container fade-in">
+    <section class="section section-dark reveal" id="reviews">
+      <div class="container fade-in reveal">
         <span class="eyebrow">Reviews</span>
         <h2 class="section-title">What our clients are saying</h2>
         <div class="divider"></div>
@@ -841,8 +872,8 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="tips">
-      <div class="container fade-in">
+    <section class="section section-alt reveal" id="tips">
+      <div class="container fade-in reveal">
         <span class="eyebrow">Tips</span>
         <h2 class="section-title">Helpful styling notes from the boutique</h2>
         <div class="divider"></div>
@@ -871,8 +902,8 @@
       </div>
     </section>
 
-    <section class="section section-dark">
-      <div class="container fade-in">
+    <section class="section section-dark reveal">
+      <div class="container fade-in reveal">
         <span class="eyebrow">FAQs</span>
         <h2 class="section-title">Everything you may want to know</h2>
         <div class="divider"></div>
@@ -901,8 +932,8 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="contact">
-      <div class="container fade-in">
+    <section class="section section-alt reveal" id="contact">
+      <div class="container fade-in reveal">
         <span class="eyebrow">Contact</span>
         <h2 class="section-title">Visit the boutique or connect online</h2>
         <div class="divider"></div>
@@ -982,19 +1013,32 @@
     const nav = document.getElementById('topnav');
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-    const items = document.querySelectorAll('.fade-in, .card-grid > *, .video-card, .contact-card, .map-wrap, .bottom-cta, .faq-item, .footer-link, .socials a');
     const sections = document.querySelectorAll('section[id], header[id]');
+    const revealItems = document.querySelectorAll('.reveal, .fade-in, .feature-card, .photo-card, .collection-card, .review-card, .tip-card, .video-card, .faq-item, .contact-card, .map-wrap, .bottom-cta, .footer-link, .socials a');
+    const heroContent = document.querySelector('.hero-content');
 
-    const observer = new IntersectionObserver((entries) => {
+    const supportsObserver = 'IntersectionObserver' in window;
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const observer = supportsObserver ? new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          entry.target.classList.add('active');
           entry.target.classList.add('in');
         }
       });
-    }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }) : null;
 
-    items.forEach((item, index) => {
-      item.style.transitionDelay = `${Math.min(index * 80, 320)}ms`;
+    revealItems.forEach((item, index) => {
+      item.classList.add('reveal');
+      const delayClass = index % 4 === 0 ? 'reveal-delay-1' : index % 4 === 1 ? 'reveal-delay-2' : index % 4 === 2 ? 'reveal-delay-3' : '';
+      if (delayClass) item.classList.add(delayClass);
+
+      if (isMobile || !supportsObserver) {
+        item.classList.add('active');
+        item.classList.add('in');
+        return;
+      }
+
       observer.observe(item);
     });
 
@@ -1016,6 +1060,11 @@
     window.addEventListener('scroll', () => {
       nav.classList.toggle('solid', window.scrollY > 20);
       setActiveLink();
+
+      if (heroContent && window.scrollY < window.innerHeight) {
+        heroContent.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+        heroContent.style.opacity = Math.max(0, 1 - window.scrollY / window.innerHeight);
+      }
     });
 
     setActiveLink();
