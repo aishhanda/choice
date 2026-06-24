@@ -178,6 +178,11 @@
       height: 100vh;
       object-fit: cover;
       z-index: -2;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .hero-video.ready {
+      opacity: 1;
     }
     .hero::before {
       content: "";
@@ -690,7 +695,7 @@
   </nav>
 
   <header class="hero" id="home">
-    <video class="hero-video" autoplay muted loop playsinline poster="images/choice-store-sign.jpg">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
       <source src="images/choice-store-video.mp4" type="video/quicktime" />
     </video>
     <div class="hero-content fade-in reveal">
@@ -1040,6 +1045,7 @@
     const sections = document.querySelectorAll('section[id], header[id]');
     const revealItems = document.querySelectorAll('.reveal, .fade-in, .feature-card, .photo-card, .collection-card, .review-card, .tip-card, .video-card, .faq-item, .contact-card, .map-wrap, .bottom-cta, .footer-link, .socials a');
     const heroContent = document.querySelector('.hero-content');
+    const heroVideo = document.querySelector('.hero-video');
 
     const supportsObserver = 'IntersectionObserver' in window;
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -1092,6 +1098,22 @@
     });
 
     setActiveLink();
+
+    if (heroVideo) {
+      const revealHeroVideo = () => {
+        if (heroVideo.readyState >= 2) {
+          heroVideo.classList.add('ready');
+          return;
+        }
+        heroVideo.classList.add('ready');
+      };
+
+      heroVideo.addEventListener('loadeddata', revealHeroVideo);
+      heroVideo.addEventListener('canplaythrough', revealHeroVideo);
+      heroVideo.addEventListener('playing', revealHeroVideo);
+      revealHeroVideo();
+      heroVideo.play().catch(() => {});
+    }
 
     menuToggle?.addEventListener('click', () => {
       const open = nav.classList.toggle('mobile-open');
